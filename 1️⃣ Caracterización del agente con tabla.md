@@ -21,4 +21,4 @@ Estático/Dinámico: Estático (el entorno no cambia sin intervención).
 
 Discreto/Continuo: Discreto (rejilla de celdas).
 
-Número de agentes: Un solo agente.
+Número de agentes: Un solo agenteeee
