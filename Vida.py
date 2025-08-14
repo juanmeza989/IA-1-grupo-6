@@ -1,7 +1,5 @@
-
 import numpy as np
 import matplotlib.pyplot as plt
-import time
 
 # Parámetros
 filas, columnas = 50, 50
@@ -11,10 +9,10 @@ velocidad = 0.1  # segundos entre pasos
 # Estado inicial aleatorio
 tablero = np.random.choice([0, 1], size=(filas, columnas))
 
-# Configuración de gráfico
+# Configuración de gráfico (se crea solo una vez)
 plt.ion()
 fig, ax = plt.subplots()
-img = ax.imshow(tablero, cmap="binary")
+img = ax.imshow(tablero, cmap="binary", interpolation="nearest")
 ax.set_title("Juego de la Vida de Conway")
 
 # Función para contar vecinos vivos
@@ -33,6 +31,9 @@ def contar_vecinos(tablero, x, y):
 
 # Simulación
 for _ in range(iteraciones):
+    if not plt.fignum_exists(fig.number):  # si cerraste la ventana, cortar bucle
+        break
+
     nuevo_tablero = np.zeros((filas, columnas), dtype=int)
     for i in range(filas):
         for j in range(columnas):
@@ -43,8 +44,7 @@ for _ in range(iteraciones):
                 nuevo_tablero[i, j] = 1
     tablero = nuevo_tablero
 
-    img.set_data(tablero)
-    plt.draw()
+    img.set_data(tablero)  # actualiza imagen sin redibujar ventana
     plt.pause(velocidad)
 
 plt.ioff()
