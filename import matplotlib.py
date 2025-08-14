@@ -19,7 +19,7 @@ ax.set_aspect("equal")
 ax.set_xlim(-50, 50)
 ax.set_ylim(-50, 50)
 
-iteraciones = 20000  # pasos para mostrar
+iteraciones = 12000  # pasos para mostrar
 
 for paso in range(iteraciones):
     color = celdas.get((x, y), 0)
