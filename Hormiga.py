@@ -18,7 +18,7 @@ velocidad = 0.00001
 historial = deque(maxlen=208)  # 2 ciclos de 104 pasos
 inicio_patron = None
 
-# Configuración gráfica
+# Configuración gráfica 
 plt.ion()
 fig, ax = plt.subplots(figsize=(8, 8))
 ax.set_aspect("equal")
